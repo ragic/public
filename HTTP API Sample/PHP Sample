@@ -35,8 +35,10 @@ function Curl($Url, $ckfile, $PostData=""){
 }
 
 //Authentication
+$account = "";  //fill your account info
+$password = ""; //fill your password info
 if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == ""){
-    $PostData = "u=vencsvencil@gmail.com&p=ragicragic&login_type=sessionId";
+    $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
     $Url = "https://api.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
@@ -46,7 +48,7 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == ""){
   To use restful API, change www.ragic.com to api.ragic.com,
   ex: http://www.ragic.com/demo/ragic-setup/3 to http://api.ragic.com/demo/ragic-setup/3
 */
-$Url = "http://api.ragic.com/vencil/petstore/1?v=3";  //your Pet Store Demo url
+$Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $PostData = $itemId."=12345&".
             $itemCategory."=fish&".
             $itemName."=fish food&".
@@ -63,14 +65,14 @@ $PostId = $result["_ragicId"];
 /*
   Reading all Entries
 */
-$Url = "http://api.ragic.com/vencil/petstore/1?v=3";
+$Url = "http://api.ragic.com/xxx/petstore/1?v=3";
 $json = Curl($Url, $ckfile);
 echo $json;    //print all data
 
 /*
   Reading posted Entry
 */
-$Url = "http://api.ragic.com/vencil/petstore/1?v=3&where=".$itemId."%2Ceq%2C12345"; //limit search range, and transfer commas(",") in conditions to "%2C"
+$Url = "http://api.ragic.com/xxx/petstore/1?v=3&where=".$itemId."%2Ceq%2C12345"; //limit search range, and transfer commas(",") in conditions to "%2C"
 $json = Curl($Url, $ckfile);
 $ary = json_decode($json,true);
 echo $ary[$PostId]["Item Price"];    //print post data info
@@ -79,7 +81,7 @@ echo $ary[$PostId]["Item Price"];    //print post data info
 /*
   Modifying posted Entry
 */
-$Url = "http://api.ragic.com/vencil/petstore/1/".$PostId."?v=3";
+$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";
 $PostData = $itemPrice."=120";
 Curl($Url, $ckfile, $PostData);
 
