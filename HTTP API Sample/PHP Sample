@@ -65,7 +65,7 @@ $PostId = $result["_ragicId"];
 /*
   Reading all Entries
 */
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3";
+$Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $json = Curl($Url, $ckfile);
 echo $json;    //print all data
 
@@ -81,7 +81,7 @@ echo $ary[$PostId]["Item Price"];    //print post data info
 /*
   Modifying posted Entry
 */
-$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";
+$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
 $PostData = $itemPrice."=120";
 Curl($Url, $ckfile, $PostData);
 
