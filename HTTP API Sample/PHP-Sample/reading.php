@@ -63,11 +63,4 @@ $json = Curl($Url, $ckfile);
 $ary = json_decode($json,true);
 echo $ary[$PostId]["Item Price"];    //print specified data info
 
-/*
-  Modifying posted Entry
-*/
-$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
-$PostData = $itemPrice."=120";
-Curl($Url, $ckfile, $PostData);
-
 ?>
