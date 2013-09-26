@@ -43,46 +43,24 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == ""){
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
 
-/*
-  Creating a New Entry
-  To use restful API, change www.ragic.com to api.ragic.com,
-  ex: http://www.ragic.com/demo/ragic-setup/3 to http://api.ragic.com/demo/ragic-setup/3
-*/
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
-$PostData = $itemId."=12345&".
-            $itemCategory."=fish&".
-            $itemName."=fish food&".
-            $quantityLeft."=10&".
-            $itemPrice."=100&".
-            $itemDescription."=test fish food";
-$json = Curl($Url, $ckfile, $PostData);
-$result = json_decode($json,true);
-echo $json."<br/>";          //print JSON returned
-echo $result["_ragicId"];    //print ragic Id
-
-$PostId = $result["_ragicId"];
 
 /*
-  Reading all Entries
+  Reading all entries
 */
 $Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $json = Curl($Url, $ckfile);
 echo $json;    //print all data
 
+
 /*
-  Reading posted Entry
+  Reading specified entry
+  you can limit search range, set condition at url like "...url/petstore/1?v=3&where=".$itemId."%2Ceq%2C12345";
+  commas(",") in conditions are needed to transfer to "%2C",  [where=".$itemId.",eq,12345"] => [where=".$itemId."%2Ceq%2C12345"]
 */
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3&where=".$itemId."%2Ceq%2C12345"; //limit search range, and transfer commas(",") in conditions to "%2C"
+$PostId = "0"; //specified entry id, take 0 as example
+$Url = "http://api.ragic.com/xxx/petstore/1?v=3";
 $json = Curl($Url, $ckfile);
 $ary = json_decode($json,true);
-echo $ary[$PostId]["Item Price"];    //print post data info
-
-
-/*
-  Modifying posted Entry
-*/
-$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
-$PostData = $itemPrice."=120";
-Curl($Url, $ckfile, $PostData);
+echo $ary[$PostId]["Item Price"];    //print specified data info
 
 ?>
