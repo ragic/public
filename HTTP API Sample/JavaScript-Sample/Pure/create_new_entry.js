@@ -28,10 +28,6 @@ function doJSONP(url, postata, callback) {
     }
 }
 
-function setSessinId(jsessionId) {
-    localStorage.setItem("sessionId", jsessionId);
-}
-
 //for POST request
 function crossDomainPost(url, postData) {
     // Add the iframe with a unique name
@@ -77,7 +73,7 @@ function crossDomainPost(url, postData) {
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
         var url = "http://api.ragic.com/AUTH";
-        doJSONP(url, postData, 'setSessinId');
+        doJSONP(url, postData, '(function(jsessionId){localStorage.setItem("sessionId", jsessionId);})');
     }
 })()
 
