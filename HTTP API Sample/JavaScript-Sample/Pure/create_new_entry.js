@@ -75,7 +75,7 @@ function crossDomainPost(url, postData) {
         var url = "http://api.ragic.com/AUTH";
         doJSONP(url, postData, '(function(jsessionId){localStorage.setItem("sessionId", jsessionId);})');
     }
-})()
+})();
 
 /*
   Creating a New Entry
