@@ -37,7 +37,7 @@ function Curl($Url, $ckfile, $PostData=""){
 //Authentication
 $account = "";  //fill your account info
 $password = ""; //fill your password info
-if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == ""){
+if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
     $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
     $Url = "https://api.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
