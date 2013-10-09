@@ -48,7 +48,7 @@ function getData(data, index) {
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
         var url = "http://api.ragic.com/AUTH";
-        doJSONP(url, postData, '(function(jsessionId){localStorage.setItem("sessionId", jsessionId);})');
+        doJSONP(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
     }
 })();
 
