@@ -72,7 +72,7 @@ function crossDomainPost(url, postData) {
     var password = "xxx"; //fill your password info
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
-        var url = "http://api.ragic.com/AUTH";
+        var url = "https://api.ragic.com/AUTH";
         doJSONP(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
     }
 })();
@@ -80,9 +80,9 @@ function crossDomainPost(url, postData) {
 /*
   Creating a New Entry
   To use restful API, change www.ragic.com to api.ragic.com,
-  ex: http://www.ragic.com/demo/ragic-setup/3 to http://api.ragic.com/demo/ragic-setup/3
+  ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
-var url = "http://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
+var url = "https://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
 var entryData = itemId + "=12345&" +
                 itemCategory + "=fish&" + 
                 itemName + "=fish food&" + 
