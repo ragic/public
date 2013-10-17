@@ -95,7 +95,7 @@ if (cookies != null) {
     }
 }
 if(!authOk) {
-    String sessionId = sendGet("http://api.ragic.com/AUTH?", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
+    String sessionId = sendGet("https://api.ragic.com/AUTH?", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
     if(sessionId.equals("-1")) return;
     Cookie cookie = new Cookie("sessionId", sessionId);
     response.addCookie(cookie);
@@ -104,9 +104,9 @@ if(!authOk) {
 /*
   Creating a New Entry
   To use restful API, change www.ragic.com to api.ragic.com,
-  ex: http://www.ragic.com/demo/ragic-setup/3 to http://api.ragic.com/demo/ragic-setup/3
+  ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
-String url = "http://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
+String url = "https://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
 String entryData = itemId + "=" + URLEncoder.encode("12345", "UTF-8") + "&" +
                    itemCategory + "=" + URLEncoder.encode("fish", "UTF-8") + "&" +
                    itemName + "=" + URLEncoder.encode("fish food", "UTF-8") + "&" +
