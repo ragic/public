@@ -47,7 +47,7 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
   Modifying specified entry
 */
 $PostId = "0"; //specified entry id, take 0 as example
-$Url = "http://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
+$Url = "https://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
 $PostData = $itemPrice."=120";
 Curl($Url, $ckfile, $PostData);
 

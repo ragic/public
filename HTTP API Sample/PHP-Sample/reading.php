@@ -47,7 +47,7 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 /*
   Reading all entries
 */
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+$Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $json = Curl($Url, $ckfile);
 echo $json;    //print all data
 
@@ -58,7 +58,7 @@ echo $json;    //print all data
   commas(",") in conditions are needed to transfer to "%2C",  [where=".$itemId.",eq,12345"] => [where=".$itemId."%2Ceq%2C12345"]
 */
 $PostId = "0"; //specified entry id, take 0 as example
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3";
+$Url = "https://api.ragic.com/xxx/petstore/1?v=3";
 $json = Curl($Url, $ckfile);
 $ary = json_decode($json,true);
 echo $ary[$PostId]["Item Price"];    //print specified data info

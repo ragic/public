@@ -46,9 +46,9 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 /*
   Creating a New Entry
   To use restful API, change www.ragic.com to api.ragic.com,
-  ex: http://www.ragic.com/demo/ragic-setup/3 to http://api.ragic.com/demo/ragic-setup/3
+  ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
-$Url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+$Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $PostData = $itemId."=12345&".
             $itemCategory."=fish&".
             $itemName."=fish food&".

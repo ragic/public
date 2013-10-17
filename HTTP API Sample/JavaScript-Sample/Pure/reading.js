@@ -47,7 +47,7 @@ function getData(data, index) {
     var password = "xxx"; //fill your password info
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
-        var url = "http://api.ragic.com/AUTH";
+        var url = "https://api.ragic.com/AUTH";
         doJSONP(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
     }
 })();
@@ -56,7 +56,7 @@ function getData(data, index) {
 /*
   Reading all entries
 */
-var url = "http://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
+var url = "https://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
 doJSONP(url, '', 'getData');
 
 
@@ -66,5 +66,5 @@ doJSONP(url, '', 'getData');
   commas(",") in conditions are needed to transfer to "%2C",  [where="+itemId+",eq,12345"] => [where="+itemId+"%2Ceq%2C12345"]
 */
 var postId = "0";    //specified entry id, take 0 as example
-var url = "http://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+var url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 doJSONP(url, postId, "(function(data){getData(data,'" + postId + "');})"); //print specified data info
