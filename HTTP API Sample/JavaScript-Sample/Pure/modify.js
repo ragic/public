@@ -31,14 +31,13 @@ function doJSONP(url, postata, callback) {
 function crossDomainPost(url, postData) {
     // Add the iframe with a unique name
     var iframe = document.createElement("iframe");
-    var uniqueNameOfFrame = "sum";
     document.body.appendChild(iframe);
     iframe.style.display = "none";
-    iframe.contentWindow.name = uniqueNameOfFrame;
+    iframe.contentWindow.name = "postIframe";
 
     // construct a form with hidden inputs, targeting the iframe
     var form = document.createElement("form");
-    form.target = uniqueNameOfFrame;
+    form.target = "postIframe";
     form.action = url;
     form.method = "POST";
 
