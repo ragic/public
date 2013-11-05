@@ -13,7 +13,7 @@ var itemDescription = "1000006";
 
 
 //for GET request
-function doJSONP(url, postata, callback) {
+function crossDomainGet(url, postata, callback) {
     var head = document.getElementsByTagName('head')[0];
     var js = document.createElement('script');
 
@@ -72,7 +72,7 @@ function crossDomainPost(url, postData) {
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
         var url = "https://api.ragic.com/AUTH";
-        doJSONP(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
+        crossDomainGet(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
     }
 })();
 
