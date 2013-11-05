@@ -1,13 +1,5 @@
 <?php
-//This sample take "Pet Store Demo" for example
-
-//list all the domain ids from "Merchandise"
-$itemId = "1000001";
-$itemCategory = "1000002";
-$itemName = "1000003";
-$quantityLeft = "1000004";
-$itemPrice = "1000005";
-$itemDescription = "1000006";
+$picField = ""; //domain id of the field you want to upload file/image 
 
 $ckfile = tempnam("/tmp", "CURLCOOKIE");  //create cookie file
 function Curl($Url, $ckfile, $PostData=""){
@@ -44,17 +36,15 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 }
 
 /*
-  Creating a New Entry
+  Creating a New Entry with File/Image Uploading
   To use restful API, change www.ragic.com to api.ragic.com,
   ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
-$Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
-$PostData = $itemId."=12345&".
-            $itemCategory."=fish&".
-            $itemName."=fish food&".
-            $quantityLeft."=10&".
-            $itemPrice."=100&".
-            $itemDescription."=test fish food";
+$Url = "https://api.ragic.com/xxx/newt/1?v=3";  //your form url
+$file = realpath("");                           //fill your file path
+$mime = "";                                     //fill file mimetype, like "image/jpg"
+$cfile = curl_file_create($file, $mime, $file);
+$PostData = [$picField => $cfile];
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
 echo $json."<br/>";          //print JSON returned
