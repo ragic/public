@@ -43,7 +43,8 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 $Url = "https://api.ragic.com/xxx/newt/1?v=3";  //your form url
 $file = realpath("");                           //fill your file path
 $mime = "";                                     //fill file mimetype, like "image/jpg"
-$cfile = curl_file_create($file, $mime, $file);
+$file_name_onserver = "";                       //fill file name you want to use on server side
+$cfile = curl_file_create($file, $mime, $file_name_onserver);
 $PostData = [$picField => $cfile];
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
