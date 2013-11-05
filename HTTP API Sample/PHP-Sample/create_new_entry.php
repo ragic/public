@@ -58,6 +58,6 @@ $PostData = $itemId."=12345&".
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
 echo $json."<br/>";          //print JSON returned
-echo $result["_ragicId"];    //print ragic Id for this new entry
+echo $result["ragicId"];    //print ragic Id for this new entry
 
 ?>
