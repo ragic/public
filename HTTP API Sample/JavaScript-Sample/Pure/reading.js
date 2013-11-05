@@ -13,7 +13,7 @@ var itemDescription = "1000006";
 
 
 //for GET request
-function doJSONP(url, postata, callback) {
+function crossDomainGet(url, postata, callback) {
     var head = document.getElementsByTagName('head')[0];
     var js = document.createElement('script');
 
@@ -48,7 +48,7 @@ function getData(data, index) {
     if (!localStorage.getItem("sessionId")) {
         var postData = "u=" + account + "&p=" + password + "&login_type=sessionId";
         var url = "https://api.ragic.com/AUTH";
-        doJSONP(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
+        crossDomainGet(url, postData, '(function(jsessionId){if(jsessionId!=-1){localStorage.setItem("sessionId", jsessionId);}})');
     }
 })();
 
@@ -57,7 +57,7 @@ function getData(data, index) {
   Reading all entries
 */
 var url = "https://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
-doJSONP(url, '', 'getData');
+crossDomainGet(url, '', 'getData');
 
 
 /*
@@ -67,4 +67,4 @@ doJSONP(url, '', 'getData');
 */
 var postId = "0";    //specified entry id, take 0 as example
 var url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
-doJSONP(url, postId, "(function(data){getData(data,'" + postId + "');})"); //print specified data info
+crossDomainGet(url, postId, "(function(data){getData(data,'" + postId + "');})"); //print specified data info
