@@ -51,7 +51,7 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 $Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
 $PostData = [
               $itemId => "12345",
-	      $itemCategory => "fish",
+              $itemCategory => "fish",
               $itemName => "fish food",
               $quantityLeft => "10",
               $itemPrice => "100",
