@@ -49,12 +49,14 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
   ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
 $Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
-$PostData = $itemId."=12345&".
-            $itemCategory."=fish&".
-            $itemName."=fish food&".
-            $quantityLeft."=10&".
-            $itemPrice."=100&".
-            $itemDescription."=test fish food";
+$PostData = [
+              $itemId => "12345",
+			  $itemCategory => "fish",
+              $itemName => "fish food",
+              $quantityLeft => "10",
+              $itemPrice => "100",
+              $itemDescription => "test fish food"
+            ];
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
 echo $json."<br/>";          //print JSON returned
