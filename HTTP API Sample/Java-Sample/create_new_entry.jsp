@@ -33,6 +33,7 @@ private String sendGet(String url, String data) throws Exception {
     conn.setRequestProperty("User-Agent", USER_AGENT);
     conn.setRequestProperty("charset", "UTF-8");
     
+    //Java7 resource try catch
     try(BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))){
         StringBuilder jsonStr = new StringBuilder();
         String inputLine;
@@ -60,7 +61,7 @@ private String sendPost(String url, String data) throws Exception {
     try(DataOutputStream wr = new DataOutputStream(conn.getOutputStream())){
         wr.writeBytes(data);
     }
-    //read response
+    //read response, use Java7 resource try catch
     try(BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))){
         StringBuilder jsonStr = new StringBuilder();
         String inputLine;
