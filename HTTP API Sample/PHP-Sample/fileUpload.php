@@ -39,6 +39,11 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
   Creating a New Entry with File/Image Uploading
   To use restful API, change www.ragic.com to api.ragic.com,
   ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
+  
+  Notice that curl_file_create() used below was added in PHP 5.5.0. 
+  If your PHP installation is older, it will not support this function,
+  and you may have to use $PostData = array($picField => '@'.$file); instead.
+  Please refer to PHP official website.
 */
 $Url = "https://api.ragic.com/xxx/newt/1?v=3";  //your form url
 $file = realpath("");                           //fill your file path
