@@ -66,9 +66,6 @@ $PostData = [
               $itemDescription => "test fish food"
             ];
 
-//
-
-
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
 echo $json."<br/>";          //print JSON returned
