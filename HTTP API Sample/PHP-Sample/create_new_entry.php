@@ -49,6 +49,14 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
   ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
 $Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+
+/*
+  You can also build $PostData in String format, 
+  like $PostData = $itemId."=12345&".
+                   $itemCategory."=fish";
+
+  and this way is compatible with old version PHP
+*/
 $PostData = [
               $itemId => "12345",
               $itemCategory => "fish",
@@ -57,6 +65,7 @@ $PostData = [
               $itemPrice => "100",
               $itemDescription => "test fish food"
             ];
+
 $json = Curl($Url, $ckfile, $PostData);
 $result = json_decode($json,true);
 echo $json."<br/>";          //print JSON returned
