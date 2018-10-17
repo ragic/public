@@ -38,17 +38,15 @@ function Curl($Url, $ckfile, $PostData=""){
 $account = "";  //fill your account info
 $password = ""; //fill your password info
 if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
-    $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
-    $Url = "https://api.ragic.com/AUTH";
+    $PostData = "api&v=3&u=".$account."&p=".$password."&login_type=sessionId";
+    $Url = "https://www.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
 
 /*
   Creating a New Entry
-  To use restful API, change www.ragic.com to api.ragic.com,
-  ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
 */
-$Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+$Url = "https://www.ragic.com/xxx/petstore/1?api&v=3";  //your Pet Store Demo url
 
 /*
   You can also build $PostData in String format, 

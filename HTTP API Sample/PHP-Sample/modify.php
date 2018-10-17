@@ -38,8 +38,8 @@ function Curl($Url, $ckfile, $PostData=""){
 $account = "";  //fill your account info
 $password = ""; //fill your password info
 if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
-    $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
-    $Url = "https://api.ragic.com/AUTH";
+    $PostData = "api&v=3&u=".$account."&p=".$password."&login_type=sessionId";
+    $Url = "https://www.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
 
@@ -47,7 +47,7 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
   Modifying specified entry
 */
 $PostId = "0"; //specified entry id, take 0 as example
-$Url = "https://api.ragic.com/xxx/petstore/1/".$PostId."?v=3";  //your Pet Store Demo url
+$Url = "https://www.ragic.com/xxx/petstore/1/".$PostId."?api&v=3";  //your Pet Store Demo url
 $PostData = $itemPrice."=120";
 Curl($Url, $ckfile, $PostData);
 
