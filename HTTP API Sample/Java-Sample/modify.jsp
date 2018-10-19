@@ -95,7 +95,7 @@ if (cookies != null) {
     }
 }
 if(!authOk) {
-    String sessionId = sendGet("https://api.ragic.com/AUTH?", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
+    String sessionId = sendGet("https://www.ragic.com/AUTH?api&v=3&", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
     if(sessionId.equals("-1")) return;
     Cookie cookie = new Cookie("sessionId", sessionId);
     response.addCookie(cookie);
@@ -106,7 +106,7 @@ if(!authOk) {
 Modifying specified entry
 */
 String postId = "0"; //specified entry id, take 0 as example
-String url = "https://api.ragic.com/xxx/petstore/1/" + postId + "?v=3"; //your Pet Store Demo url
+String url = "https://www.ragic.com/xxx/petstore/1/" + postId + "?api&v=3"; //your Pet Store Demo url
 String postData = itemPrice + "=120";
 String returnedJson = sendPost(url, postData);
 statusReport sr = gson.fromJson (returnedJson, statusReport.class);
