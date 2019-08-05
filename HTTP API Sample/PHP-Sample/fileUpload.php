@@ -30,22 +30,20 @@ function Curl($Url, $ckfile, $PostData=""){
 $account = "";  //fill your account info
 $password = ""; //fill your password info
 if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
-    $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
-    $Url = "https://api.ragic.com/AUTH";
+    $PostData = "api&v=3&u=".$account."&p=".$password."&login_type=sessionId";
+    $Url = "https://www.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
 
 /*
   Creating a New Entry with File/Image Uploading
-  To use restful API, change www.ragic.com to api.ragic.com,
-  ex: https://www.ragic.com/demo/ragic-setup/3 to https://api.ragic.com/demo/ragic-setup/3
   
   Notice that curl_file_create() used below was added in PHP 5.5.0. 
   If your PHP installation is older, it will not support this function,
   and you may have to use $PostData = array($picField => '@'.$file); instead.
   Please refer to PHP official website.
 */
-$Url = "https://api.ragic.com/xxx/newt/1?v=3";  //your form url
+$Url = "https://www.ragic.com/xxx/newt/1?api&v=3";  //your form url
 $file = realpath("");                           //fill your file path
 $mime = "";                                     //fill file mimetype, like "image/jpg"
 $file_name_onserver = "";                       //fill file name you want to use on server side

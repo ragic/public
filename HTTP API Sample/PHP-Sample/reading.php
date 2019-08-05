@@ -38,8 +38,8 @@ function Curl($Url, $ckfile, $PostData=""){
 $account = "";  //fill your account info
 $password = ""; //fill your password info
 if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
-    $PostData = "u=".$account."&p=".$password."&login_type=sessionId";
-    $Url = "https://api.ragic.com/AUTH";
+    $PostData = "api&v=3&u=".$account."&p=".$password."&login_type=sessionId";
+    $Url = "https://www.ragic.com/AUTH";
     $_SESSION["SessionId"] = Curl($Url, $ckfile, $PostData);
 }
 
@@ -47,18 +47,18 @@ if(!isset($_SESSION["SessionId"]) || $_SESSION["SessionId"] == "-1"){
 /*
   Reading all entries
 */
-$Url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+$Url = "https://www.ragic.com/xxx/petstore/1?api&v=3";  //your Pet Store Demo url
 $json = Curl($Url, $ckfile);
 echo $json;    //print all data
 
 
 /*
   Reading specified entry
-  you can limit search range, set condition at url like "...url/petstore/1?v=3&where=".$itemId."%2Ceq%2C12345";
+  you can limit search range, set condition at url like "...url/petstore/1?api&v=3&where=".$itemId."%2Ceq%2C12345";
   commas(",") in conditions are needed to transfer to "%2C",  [where=".$itemId.",eq,12345"] => [where=".$itemId."%2Ceq%2C12345"]
 */
 $PostId = "0"; //specified entry id, take 0 as example
-$Url = "https://api.ragic.com/xxx/petstore/1?v=3";
+$Url = "https://www.ragic.com/xxx/petstore/1?api&v=3";
 $json = Curl($Url, $ckfile);
 $ary = json_decode($json,true);
 echo $ary[$PostId]["Item Price"];    //print specified data info

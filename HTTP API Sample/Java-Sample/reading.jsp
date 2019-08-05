@@ -63,7 +63,7 @@ if (cookies != null) {
     }
 }
 if(!authOk) {
-    String sessionId = sendGet("https://api.ragic.com/AUTH?", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
+    String sessionId = sendGet("https://www.ragic.com/AUTH?api&v=3&", "u=" + URLEncoder.encode(account, "UTF-8") + "&p=" + URLEncoder.encode(password, "UTF-8") + "&login_type=sessionId");
     if(sessionId.equals("-1")) return;
     Cookie cookie = new Cookie("sessionId", sessionId);
     response.addCookie(cookie);
@@ -74,7 +74,7 @@ if(!authOk) {
 /*
   Reading all entries
 */
-String url = "https://api.ragic.com/xxx/petstore/1?v=3"; //your Pet Store Demo url
+String url = "https://www.ragic.com/xxx/petstore/1?api&v=3"; //your Pet Store Demo url
 String jsonStr = sendGet(url, "");
 JsonElement element = gson.fromJson (jsonStr, JsonElement.class);
 out.print(element + "<br/>");
@@ -85,7 +85,7 @@ out.print(element + "<br/>");
   commas(",") in conditions are needed to transfer to "%2C",  [where="+itemId+",eq,12345"] => [where="+itemId+"%2Ceq%2C12345"]
 */
 String postId = "0";    //specified entry id, take 0 as example
-url = "https://api.ragic.com/xxx/petstore/1?v=3";  //your Pet Store Demo url
+url = "https://www.ragic.com/xxx/petstore/1?api&v=3";  //your Pet Store Demo url
 jsonStr = sendGet(url, "");
 element = gson.fromJson (jsonStr, JsonElement.class);
 JsonObject jsonObj = element.getAsJsonObject();
